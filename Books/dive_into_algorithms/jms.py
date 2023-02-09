@@ -17,20 +17,23 @@ def parse_magic_square(given_matrix):
 
     return row, columns, [sum(major_diagonal)], [sum(minor_diagonal)]
 
-
-def verify_equality(sums_of_square):
+def verify_equality(sums_of_given_matrix):
     sums = []
-    for i in sums_of_square:
+    for i in sums_of_given_matrix:
        for j in i:
            sums.append(j)
 
     return len(list(set(sums))) == 1
 
+def verify_square(given_matrix:list)-> bool:
+    """Verify whether a given_matrix is a magic square
 
-def verify_square(given_matrix):
+    Calculate the sums across all rows, columns and diagonals
+    and then check whether the sum of rows,columns,diagonals are the same
+    """
+
     sums = parse_magic_square(given_matrix)
     return verify_equality(sums)
-
 
 if __name__ == "__main__":
     import numpy as np
